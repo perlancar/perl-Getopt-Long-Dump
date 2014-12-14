@@ -14,9 +14,9 @@ use base qw(Module::Patch);
 our %config;
 
 sub _dump {
-    print "# BEGIN DUMPSPEC $config{-tag}\n";
+    print "# BEGIN DUMP $config{-tag}\n";
     dd @_;
-    print "# END DUMPSPEC $config{-tag}\n";
+    print "# END DUMP $config{-tag}\n";
 }
 
 sub _GetOptions(@) {
