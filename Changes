@@ -1,6 +1,6 @@
 Revision history for Getopt-Long-Patch-DumpAndExit
 
-0.01    2014-12-14 (PERLANCAR) (unreleased)
+0.01    2014-12-14 (PERLANCAR)
 
         - First release, split from App-GenBashCompleter and renamed from
           ::DumpSpec to ::DumpAndExit.
