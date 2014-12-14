@@ -1,5 +1,10 @@
 Revision history for Getopt-Long-Patch-DumpAndExit
 
+0.02    2014-12-14 (PERLANCAR)
+
+	- Rename fragment name DUMPSPEC -> DUMP.
+
+
 0.01    2014-12-14 (PERLANCAR)
 
         - First release, split from App-GenBashCompleter and renamed from
