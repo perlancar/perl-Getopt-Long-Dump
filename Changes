@@ -1,6 +1,6 @@
 Revision history for Getopt-Long-Dump
 
-0.03    2014-12-21 (PERLANCAR) (unreleased)
+0.03    2014-12-21 (PERLANCAR)
 
 	- Rename dist from Getopt-Long-Patch-DumpAndExit to Getopt-Long-Dump.
 
