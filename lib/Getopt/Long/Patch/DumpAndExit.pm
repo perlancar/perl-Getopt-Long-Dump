@@ -20,36 +20,36 @@ sub _dump {
 }
 
 sub _GetOptions(@) {
-    # discard optional first hash argument
     if (ref($_[0]) eq 'HASH') {
-        shift;
+        my $h = shift;
+        _dump({ map {$_ => sub{}} @_ });
+    } else {
+        _dump({@_});
     }
-    my %spec = @_;
-    _dump(\%spec);
     $config{-exit_method} eq 'exit' ? exit(0) : die;
 }
 
 sub _GetOptionsFromArray(@) {
     # discard array
     shift;
-    # discard optional first hash argument
     if (ref($_[0]) eq 'HASH') {
-        shift;
+        my $h = shift;
+        _dump({ map {$_ => sub{}} @_ });
+    } else {
+        _dump({@_});
     }
-    my %spec = @_;
-    _dump(\%spec);
     $config{-exit_method} eq 'exit' ? exit(0) : die;
 }
 
 sub _GetOptionsFromString(@) {
     # discard string
     shift;
-    # discard optional first hash argument
     if (ref($_[0]) eq 'HASH') {
-        shift;
+        my $h = shift;
+        _dump({ map {$_ => sub{}} @_ });
+    } else {
+        _dump({@_});
     }
-    my %spec = @_;
-    _dump(\%spec);
     $config{-exit_method} eq 'exit' ? exit(0) : die;
 }
 
