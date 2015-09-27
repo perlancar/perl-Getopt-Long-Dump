@@ -1,5 +1,10 @@
 Revision history for Getopt-Long-Dump
 
+0.05    2015-09-27 (PERLANCAR)
+
+	- Replace Data::Dump with Data::Dmp for proper dumping of coderefs.
+
+
 0.04    2015-01-02 (PERLANCAR)
 
 	- [Bugfix] comply to GetOptions interface: when first argument is
