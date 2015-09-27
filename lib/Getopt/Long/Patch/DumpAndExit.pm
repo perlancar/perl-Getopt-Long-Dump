@@ -7,7 +7,7 @@ use 5.010001;
 use strict;
 no warnings;
 
-use Data::Dump;
+use Data::Dmp;
 use Module::Patch 0.19 qw();
 use base qw(Module::Patch);
 
@@ -15,7 +15,7 @@ our %config;
 
 sub _dump {
     print "# BEGIN DUMP $config{-tag}\n";
-    dd @_;
+    say dmp($_[0]);
     print "# END DUMP $config{-tag}\n";
 }
 
@@ -95,4 +95,3 @@ sub patch_data {
 
 This patch can be used to extract Getopt::Long options specification from a
 script by running the script but exiting early after getting the specification.
-
