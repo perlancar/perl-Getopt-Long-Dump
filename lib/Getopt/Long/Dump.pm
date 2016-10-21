@@ -91,7 +91,9 @@ sub dump_getopt_long_script {
                         "stdout=<<$stdout>>, stderr=<<$stderr>>"];
     }
 
-    [200, "OK", $spec];
+    [200, "OK", $spec, {
+        'func.detect_res' => $detres,
+    }];
 }
 
 1;
