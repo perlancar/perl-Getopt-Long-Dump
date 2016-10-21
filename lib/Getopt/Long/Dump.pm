@@ -37,6 +37,7 @@ _
         filename => {
             summary => 'Path to the script',
             req => 1,
+            pos => 0,
             schema => 'str*',
         },
         libs => {
