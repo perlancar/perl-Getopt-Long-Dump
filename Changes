@@ -1,5 +1,10 @@
 Revision history for Getopt-Long-Dump
 
+0.07    2016-10-21 (PERLANCAR)
+
+	- Include detection result in func.detect_res result metadata.
+
+
 0.06    2016-10-21 (PERLANCAR)
 
 	- Set GETOPT_LONG_DUMP to 1 when executing script to be dumped to
