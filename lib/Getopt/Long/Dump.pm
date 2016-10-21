@@ -69,6 +69,7 @@ sub dump_getopt_long_script {
         "--version",
     );
     my ($stdout, $stderr, $exit) = Capture::Tiny::capture(
+        local $ENV{GETOPT_LONG_DUMP} = 1;
         sub { system @cmd },
     );
 
@@ -96,3 +97,9 @@ sub dump_getopt_long_script {
 
 1;
 # ABSTRACT:
+
+=head1 ENVIRONMENT
+
+=head2 GETOPT_LONG_DUMP => bool
+
+Will be set to 1 when executing the script to be dumped.
