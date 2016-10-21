@@ -1,5 +1,11 @@
 Revision history for Getopt-Long-Dump
 
+0.06    2016-10-21 (PERLANCAR)
+
+	- Set GETOPT_LONG_DUMP to 1 when executing script to be dumped to
+	  aid detection.
+
+
 0.05    2015-09-27 (PERLANCAR)
 
 	- Replace Data::Dump with Data::Dmp for proper dumping of coderefs.
