@@ -69,8 +69,7 @@ sub dump_getopt_long_script {
         "--version",
     );
     my ($stdout, $stderr, $exit) = Capture::Tiny::capture(
-        local $ENV{GETOPT_LONG_DUMP} = 1;
-        sub { system @cmd },
+        sub { local $ENV{GETOPT_LONG_DUMP} = 1; system @cmd },
     );
 
     my $spec;
