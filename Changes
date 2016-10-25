@@ -1,5 +1,10 @@
 Revision history for Getopt-Long-Dump
 
+0.08    2016-10-26 (PERLANCAR)
+
+	- Dump coderef as sub{"DUMMY"} to avoid problems.
+
+
 0.07    2016-10-21 (PERLANCAR)
 
 	- Include detection result in func.detect_res result metadata.
