@@ -48,6 +48,10 @@ _
             schema  => ['array*' => of => 'str*'],
             cmdline_aliases => {I=>{}},
         },
+        skip_detect => {
+            schema => ['bool', is=>1],
+            cmdline_aliases => {D=>{}},
+        },
     },
 };
 sub dump_getopt_long_script {
@@ -58,11 +62,16 @@ sub dump_getopt_long_script {
     my %args = @_;
 
     my $filename = $args{filename} or return [400, "Please specify filename"];
-    my $detres = Getopt::Long::Util::detect_getopt_long_script(
-        filename => $filename);
-    return $detres if $detres->[0] != 200;
-    return [412, "File '$filename' is not script using Getopt::Long (".
-        $detres->[3]{'func.reason'}.")"] unless $detres->[2];
+    my $detres;
+    if ($args{skip_detect}) {
+        $detres = [200, "OK (skip_detect)", 1];
+    } else {
+        $detres = Getopt::Long::Util::detect_getopt_long_script(
+            filename => $filename);
+        return $detres if $detres->[0] != 200;
+        return [412, "File '$filename' is not script using Getopt::Long (".
+                    $detres->[3]{'func.reason'}.")"] unless $detres->[2];
+    }
 
     my $libs = $args{libs} // [];
 
@@ -81,18 +90,18 @@ sub dump_getopt_long_script {
     if ($stdout =~ /^# BEGIN DUMP $tag\s+(.*)^# END DUMP $tag/ms) {
         $spec = eval $1;
         if ($@) {
-            return [500, "Script '$filename' detected as using ".
-                        "Getopt::Long, but error in eval-ing captured ".
-                            "option spec: $@, raw capture: <<<$1>>>"];
+            return [500, "Script '$filename' looks like using ".
+                        "Getopt::Long, but I got an error in eval-ing ".
+                            "captured option spec: $@, raw capture: <<<$1>>>"];
         }
         if (ref($spec) ne 'HASH') {
-            return [500, "Script '$filename' detected as using ".
-                        "Getopt::Long, but didn't get a hash option spec, ".
+            return [500, "Script '$filename' looks like using ".
+                        "Getopt::Long, but I didn't get a hash option spec, ".
                             "raw capture: stdout=<<$stdout>>"];
         }
     } else {
-        return [500, "Script '$filename' detected as using Getopt::Long, ".
-                    "but can't capture option spec, raw capture: ".
+        return [500, "Script '$filename' looks like using Getopt::Long, ".
+                    "but I couldn't capture option spec, raw capture: ".
                         "stdout=<<$stdout>>, stderr=<<$stderr>>"];
     }
 
