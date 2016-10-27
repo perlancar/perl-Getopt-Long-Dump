@@ -1,5 +1,13 @@
 Revision history for Getopt-Long-Dump
 
+0.09    2016-10-27 (PERLANCAR)
+
+	- Add option skip_detect.
+
+	- [ux] Tweak Rinci metadata for CLI: add shortcut options -f
+	  (--filename), -I (--lib).
+
+
 0.08    2016-10-26 (PERLANCAR)
 
 	- Dump coderef as sub{"DUMMY"} to avoid problems.
@@ -45,5 +53,3 @@ Revision history for Getopt-Long-Dump
 
         - First release, split from App-GenBashCompleter and renamed from
           ::DumpSpec to ::DumpAndExit.
-
-
