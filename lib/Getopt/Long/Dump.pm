@@ -64,7 +64,7 @@ sub dump_getopt_long_script {
     my $filename = $args{filename} or return [400, "Please specify filename"];
     my $detres;
     if ($args{skip_detect}) {
-        $detres = [200, "OK (skip_detect)", 1];
+        $detres = [200, "OK (skip_detect)", 1, {"func.module"=>"Getopt::Long", "func.reason"=>"skip detect, forced"}];
     } else {
         $detres = Getopt::Long::Util::detect_getopt_long_script(
             filename => $filename);
