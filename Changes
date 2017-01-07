@@ -1,5 +1,3 @@
-Revision history for Getopt-Long-Dump
-
 0.10    2016-10-27 (PERLANCAR)
 
 	- Tweak func.detect_res when under skip_detect so it's closer to
