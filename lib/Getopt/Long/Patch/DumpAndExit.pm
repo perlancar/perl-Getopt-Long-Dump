@@ -25,10 +25,10 @@ sub _dump {
 
 sub _GetOptions(@) {
     if (ref($_[0]) eq 'HASH') {
+        # discard hash storage
         my $h = shift;
-    } else {
-        _dump({@_});
     }
+    _dump({@_});
     $config{-exit_method} eq 'exit' ? exit(0) : die;
 }
 
@@ -47,6 +47,7 @@ sub _GetOptionsFromString(@) {
     # discard string
     shift;
     if (ref($_[0]) eq 'HASH') {
+        # discard hash storage
         my $h = shift;
     }
     _dump([@_]);
