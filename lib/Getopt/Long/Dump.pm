@@ -91,7 +91,7 @@ sub dump_getopt_long_script {
 
     my $spec;
     if ($stdout =~ /^# BEGIN DUMP $tag\s+(.*)^# END DUMP $tag/ms) {
-        $spec = eval $1;
+        $spec = eval $1; ## no critic: BuiltinFunctions::ProhibitStringyEval
         if ($@) {
             return [500, "Script '$filename' looks like using ".
                         "Getopt::Long, but I got an error in eval-ing ".

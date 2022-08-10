@@ -1,3 +1,10 @@
+0.110   2022-08-10  Released-By: PERLANCAR; Urgency: medium; Backward-Incompatible: yes
+
+        - [incompatible change] [bugfix] Dump Getopt::Spec as arrayref not
+          hashref, because not all option spec must be followed by a destination
+          ref.
+
+
 0.10    2016-10-27  Released-By: PERLANCAR
 
 	- Tweak func.detect_res when under skip_detect so it's closer to
