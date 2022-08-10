@@ -1,8 +1,5 @@
 package Getopt::Long::Patch::DumpAndExit;
 
-# DATE
-# VERSION
-
 use 5.010001;
 use strict;
 no warnings;
@@ -10,6 +7,11 @@ no warnings;
 use Data::Dmp;
 use Module::Patch 0.19 qw();
 use base qw(Module::Patch);
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
 
 our %config;
 
@@ -23,7 +25,6 @@ sub _dump {
 sub _GetOptions(@) {
     if (ref($_[0]) eq 'HASH') {
         my $h = shift;
-        _dump({ map {$_ => sub{}} @_ });
     } else {
         _dump({@_});
     }
@@ -34,11 +35,10 @@ sub _GetOptionsFromArray(@) {
     # discard array
     shift;
     if (ref($_[0]) eq 'HASH') {
+        # discard hash storage
         my $h = shift;
-        _dump({ map {$_ => sub{}} @_ });
-    } else {
-        _dump({@_});
     }
+    _dump([@_]);
     $config{-exit_method} eq 'exit' ? exit(0) : die;
 }
 
@@ -47,10 +47,8 @@ sub _GetOptionsFromString(@) {
     shift;
     if (ref($_[0]) eq 'HASH') {
         my $h = shift;
-        _dump({ map {$_ => sub{}} @_ });
-    } else {
-        _dump({@_});
     }
+    _dump([@_]);
     $config{-exit_method} eq 'exit' ? exit(0) : die;
 }
 

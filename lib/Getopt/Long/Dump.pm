@@ -1,13 +1,16 @@
 package Getopt::Long::Dump;
 
-# DATE
-# VERSION
-
-use 5.010;
+use 5.010001;
 use strict;
 use warnings;
 
 use Exporter qw(import);
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
+
 our @EXPORT_OK = qw(dump_getopt_long_script);
 
 our %SPEC;
@@ -93,11 +96,6 @@ sub dump_getopt_long_script {
             return [500, "Script '$filename' looks like using ".
                         "Getopt::Long, but I got an error in eval-ing ".
                             "captured option spec: $@, raw capture: <<<$1>>>"];
-        }
-        if (ref($spec) ne 'HASH') {
-            return [500, "Script '$filename' looks like using ".
-                        "Getopt::Long, but I didn't get a hash option spec, ".
-                            "raw capture: stdout=<<$stdout>>"];
         }
     } else {
         return [500, "Script '$filename' looks like using Getopt::Long, ".
