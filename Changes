@@ -1,3 +1,9 @@
+0.112   2022-08-10  Released-By: PERLANCAR; Urgency: high
+
+        - [bugfix] Derp, forgot to adjust one instance of dump to not
+          produce hash.
+
+
 0.111   2022-08-10  Released-By: PERLANCAR; Urgency: medium
 
         - [bugfix] Fix if() bug introduced in 0.110.
